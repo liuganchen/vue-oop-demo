@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <first-component></first-component>
+    <sec-component/>
+    <thr-component/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
+import FirstComponent from '@/components/first/first-component.vue'
+import SecComponent from '@/components/sec/sec-component.vue';
+import ThrComponent from '@/components/thr/thr-component.vue';
 @Component({
   components: {
-    HelloWorld,
+    ThrComponent,
+    SecComponent,
+    FirstComponent
   },
 })
 export default class Home extends Vue {}
 </script>
+<style lang="scss">
+div.home{
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 10px;
+}
+</style>
