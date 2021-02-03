@@ -5,6 +5,7 @@ import router from './router';
 import store from './store';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
+import '@/directive/track';
 
 Vue.use(Antd);
 

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <first-component></first-component>
+    <first-component v-track></first-component>
     <sec-component/>
     <thr-component/>
   </div>
