@@ -8,18 +8,20 @@
       <a-button @click="clearRequest"> 重置 </a-button>
       <a-button @click="searchData" type="primary"> 搜索 </a-button>
     </div>
-    <div class="detail">{{ detailContent }}</div>
+    <div class="detail">{{ detailContent.data }}</div>
   </div>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import {ComponentRequest} from '@/components/thr/component-request';
+import {thrSev$} from '@/components/thr/thr-service';
+import {DetailContent} from '@/components/thr/detail-content';
 
 @Component
 export default class ThrComponent extends Vue{
   requestInfo = new ComponentRequest();
-  detailContent = '';
+  detailContent:DetailContent = {};
   clearRequest(){
     this.requestInfo = new ComponentRequest();
   }
@@ -27,10 +29,8 @@ export default class ThrComponent extends Vue{
     // 1, 格式化入参
     this.requestInfo.formatData();
     console.log(this.requestInfo)
-    this.detailContent = `正在搜索 -> -> ->`
-    setTimeout(()=>{
-      this.detailContent = `搜索结果更新：${new Date().toLocaleString()}`
-    }, 2000)
+    this.detailContent.data = `正在搜索 -> -> ->`
+    thrSev$.getData(this.requestInfo).then(res => this.detailContent = res);
   }
 }
 </script>

@@ -8,7 +8,7 @@
       <a-button @click="clearRequest"> 重置 </a-button>
       <a-button @click="searchData" type="primary"> 搜索 </a-button>
     </div>
-    <div class="detail">{{ detailContent }}</div>
+    <div class="detail">{{ detailContent.data }}</div>
   </div>
 </template>
 
@@ -36,12 +36,20 @@ export function formatRequestData(request){
   }
   return request;
 }
+function getData(query){
+  return  new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(query);
+      resolve({data: `搜索结果更新：${new Date().toLocaleString()}`, total: 12});
+    }, 2000);
+  });
+}
 export default {
   name: "sec-component",
   data(){
     return {
       requestInfo: requestStaticData,
-      detailContent: ''
+      detailContent: {}
     }
   },
   methods:{
@@ -51,10 +59,8 @@ export default {
     searchData(){
       // 1, 格式化入参
       formatRequestData(this.requestInfo);
-      this.detailContent = `正在搜索 -> -> ->`
-      setTimeout(()=>{
-        this.detailContent = `搜索结果更新：${new Date().toLocaleString()}`
-      }, 2000)
+      this.detailContent.data = `正在搜索 -> -> ->`
+      getData(this.requestInfo).then(res => this.detailContent = res);
     }
   }
 }
