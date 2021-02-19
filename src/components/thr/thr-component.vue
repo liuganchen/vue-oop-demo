@@ -15,7 +15,7 @@
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import {ComponentRequest} from '@/components/thr/component-request';
-import {thrSev$} from '@/components/thr/thr-service';
+import {thrSev} from '@/components/thr/thr-service';
 import {DetailContent} from '@/components/thr/detail-content';
 
 @Component
@@ -30,7 +30,7 @@ export default class ThrComponent extends Vue{
     this.requestInfo.formatData();
     console.log(this.requestInfo)
     this.detailContent.data = `正在搜索 -> -> ->`
-    thrSev$.getData(this.requestInfo).then(res => this.detailContent = res);
+    thrSev.getData(this.requestInfo).then(res => this.detailContent = res);
   }
 }
 </script>

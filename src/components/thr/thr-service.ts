@@ -10,4 +10,4 @@ export class ThrService {
     });
   }
 }
-export const thrSev$ = new ThrService();
+export const thrSev = new ThrService();
