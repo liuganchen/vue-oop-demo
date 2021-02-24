@@ -1,5 +1,9 @@
 # vue-oop-demo
 
+## info
+    
+    介绍在ts的帮助下的静态代码检查 + 代码编写规范
+
 ## Project setup
 ```
 yarn install
