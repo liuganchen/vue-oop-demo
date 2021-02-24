@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts">
+// vue-class-component
 import {Component, Vue} from 'vue-property-decorator';
 import {ComponentRequest} from '@/components/thr/component-request';
 import {thrSev} from '@/components/thr/thr-service';
@@ -21,7 +22,7 @@ import {DetailContent} from '@/components/thr/detail-content';
 @Component
 export default class ThrComponent extends Vue{
   requestInfo = new ComponentRequest();
-  detailContent:DetailContent = {};
+  detailContent:DetailContent = new DetailContent();
   clearRequest(){
     this.requestInfo = new ComponentRequest();
   }

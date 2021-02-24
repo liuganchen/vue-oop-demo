@@ -11,3 +11,5 @@ export class ThrService {
   }
 }
 export const thrSev = new ThrService();
+export const thrSev2 = new ThrService();
+export const thrSev3 = new ThrService();
